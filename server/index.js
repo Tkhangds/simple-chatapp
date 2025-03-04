@@ -1,10 +1,24 @@
-const ws = require("ws");
-const servert = new ws.Server({ port: 8080 });
+import { createServer } from "http";
+import { Server } from "socket.io";
 
-servert.on("connection", (socket) => {
-  socket.on("message", (message) => {
-    const buffer = Buffer.from(message);
-    console.log(buffer.toString());
-    socket.send("Echo: " + message);
+const httpServer = createServer();
+
+const ioServer = new Server(httpServer, {
+  cors: {
+    origin:
+      process.env.NODE_ENV === "production"
+        ? false
+        : ["http://localhost:5500", "http://127.0.0.1:5500"],
+  },
+});
+
+ioServer.on("connection", (socket) => {
+  console.log(`User ${socket.id} connected`);
+
+  socket.on("message", (data) => {
+    console.log(data);
+    ioServer.emit("message", `${socket.id.substring(0, 5)} : ${data}`);
   });
 });
+
+httpServer.listen(3500, () => console.log("listening on port 3500"));
