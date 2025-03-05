@@ -1,0 +1,105 @@
+body {
+    background: linear-gradient(135deg, #2C5E1E, #1A3A11);
+    color: #E6F3E6;
+    padding: 1rem;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(40, 70, 40, 0.6);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+input {
+    flex-grow: 1;
+    border-radius: 10px;
+    padding: 15px 20px;
+    border: 2px solid #4A7942;
+    background-color: rgba(70, 110, 70, 0.5);
+    color: #E6F3E6;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #6EBD6E;
+    box-shadow: 0 0 15px rgba(110, 189, 110, 0.4);
+}
+
+input::placeholder {
+    color: rgba(230, 243, 230, 0.7);
+}
+
+button {
+    border-radius: 10px;
+    padding: 15px 20px;
+    background-color: #4A7942;
+    color: #E6F3E6;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #6EBD6E;
+    transform: scale(1.05);
+}
+
+ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    list-style-type: none;
+    width: 100%;
+    max-width: 600px;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+li {
+    background-color: rgba(60, 90, 60, 0.7);
+    border-radius: 15px;
+    padding: 15px 20px;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.activity {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: rgba(40, 70, 40, 0.6);
+    border-radius: 15px;
+    font-size: 1rem;
+    color: rgba(230, 243, 230, 0.8);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    form, ul, .activity {
+        width: 95%;
+    }
+
+    input, button {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+}
