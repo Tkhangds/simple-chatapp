@@ -1,3 +1,6 @@
+// Uncomment this when running on local
+// const socket = io("ws://localhost:3000");
+// Uncomment this when running on production
 const socket = io("https://simple-chatapp-jhpd.onrender.com");
 
 const msgInput = document.querySelector("#message");
@@ -89,7 +92,7 @@ socket.on("userList", ({ users }) => {
 socket.on("roomList", ({ rooms }) => {
   showRooms(rooms);
 });
-
+cl;
 function showUser(users) {
   userList.textContent = "";
   if (users) {

@@ -6,12 +6,16 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3000;
 const ADMIN = "Admin";
 
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 const expressServer = app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
@@ -33,6 +37,10 @@ const ioServer = new Server(expressServer, {
         : [
             "http://localhost:5500",
             "http://127.0.0.1:5500",
+            "http://localhost:3000",
+            "http://127.0.0.1:3000",
+            "http://localhost:3500",
+            "http://127.0.0.1:3500",
             "https://simple-chatapp-jhpd.onrender.com/",
           ],
   },
